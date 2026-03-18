@@ -10,6 +10,8 @@ The analysis compares:
 
 ---
 
+## Map of Documentation 
+
 ```
 PROJECT/
 │
@@ -100,61 +102,118 @@ It should also run on:
 
 ---
 
-## Data Sources
+## Section 2: Instructions for Reproducing Results
 
-### Housing Market Data
+Follow these steps to reproduce the results of this project:
 
-Monthly housing reports containing:
+### Step 1: Set Up Environment
 
-* Median sales price
-* Sales volume
-* Price change percentage
+1. Install Python (version 3.8 or higher recommended)
+2. Install required packages:
 
-### HAC Meeting Minutes
-
-* PDF documents of meeting minutes
-* Converted to text and processed for sentiment analysis
-
----
-
-## Methodology
-
-### Data Extraction
-
-* Housing data extracted using regex from PDF reports
-* Meeting minutes processed using NLP techniques
-
-### Feature Engineering
-
-* Word counts and keyword frequencies calculated
-* Sentiment score computed as:
-
-```
-sentiment_score = (housing_mentions - uncertainty_mentions) / minutes_word_length
+```bash
+pip install pandas numpy pdfplumber nltk statsmodels pmdarima
 ```
 
-* Dates extracted from filenames and standardized to `YYYY-MM`
-* Lagging applied so sentiment at time *t* predicts price at *t+1*
+3. Download NLTK tokenizer (only needed once):
 
-### Modeling
-
-* Baseline: ARIMA (price only)
-* Extended: ARIMAX (price + sentiment variables)
-
-### Evaluation
-
-Models are evaluated using:
-
-* RMSE (Root Mean Squared Error)
-* MAE (Mean Absolute Error)
+```python
+import nltk
+nltk.download('punkt')
+```
 
 ---
 
-## Expected Results
+### Step 2: Prepare Data
 
-The ARIMAX model is expected to outperform the ARIMA model if sentiment contains predictive information about future housing prices.
+1. Place all housing market report PDFs into the `data/` folder
+2. Place all HAC meeting minutes PDFs into the appropriate folder used in your scripts
 
 ---
 
+### Step 3: Extract Housing Data
 
-Emily Moore
+Run the script:
+
+```bash
+python scripts/scrape_caar_data.py
+```
+
+This will:
+
+* Extract median price, sales volume, and price change percentage
+* Save the output as `caar_data.csv`
+
+---
+
+### Step 4: Process Meeting Minutes
+
+Run:
+
+```bash
+python scripts/process_meeting_minutes.py
+```
+
+This will:
+
+* Extract text from PDFs
+* Count housing and uncertainty-related words
+* Compute total word counts
+* Generate sentiment-related variables
+* Save output as `housing_uncertainty_with_score.csv`
+
+---
+
+### Step 5: Merge Datasets
+
+Run:
+
+```bash
+python scripts/merge_datasets.py
+```
+
+This will:
+
+* Combine housing and sentiment datasets
+* Remove unnecessary columns (e.g., file names)
+* Compute:
+
+  * `median_price_change_pct`
+  * `sentiment_score`
+* Save final dataset as `combined_housing_sentiment.csv`
+
+---
+
+### Step 6: Run Modeling
+
+Open and run:
+
+```bash
+notebooks/analysis.ipynb
+```
+
+This notebook will:
+
+* Load the final dataset
+* Fit an ARIMA model (baseline)
+* Fit an ARIMAX model (with sentiment variables)
+* Generate forecasts
+* Compute evaluation metrics (RMSE and MAE)
+
+---
+
+### Step 7: Compare Results
+
+* Compare RMSE and MAE from both models
+* Determine whether sentiment improves predictive accuracy
+
+---
+
+## Expected Outcome
+
+If the hypothesis is correct:
+
+* The ARIMAX model will produce lower RMSE and MAE than the ARIMA model
+* Sentiment variables will improve out-of-sample forecasts
+
+---
