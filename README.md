@@ -9,7 +9,45 @@ The analysis compares:
 * An extended ARIMAX model that includes sentiment features derived from meeting minutes
 
 
-## Map of Documentation 
+## Section 1: Software and Platform
+
+### Software Used
+
+* Python (primary programming language)
+* Jupyter Notebook (for analysis and modeling)
+
+### Required Python Packages
+
+The following libraries are required to run the project:
+
+* pandas
+* numpy
+* pdfplumber
+* nltk
+* statsmodels
+* pmdarima
+* re (built-in)
+* os (built-in)
+
+You can install the required packages using:
+
+```python
+pip install pandas numpy pdfplumber nltk statsmodels pmdarima 
+```
+
+### Platform
+
+This project was developed and tested on:
+
+* macOS (Mac)
+
+It should also run on:
+
+* Windows
+* Linux
+
+
+## Section 2: Map of Documentation 
 
 ```
 PROJECT/
@@ -61,45 +99,7 @@ PROJECT/
 ```
 
 
-## Section 1: Software and Platform
-
-### Software Used
-
-* Python (primary programming language)
-* Jupyter Notebook (for analysis and modeling)
-
-### Required Python Packages
-
-The following libraries are required to run the project:
-
-* pandas
-* numpy
-* pdfplumber
-* nltk
-* statsmodels
-* pmdarima
-* re (built-in)
-* os (built-in)
-
-You can install the required packages using:
-
-```python
-pip install pandas numpy pdfplumber nltk statsmodels pmdarima 
-```
-
-### Platform
-
-This project was developed and tested on:
-
-* macOS (Mac)
-
-It should also run on:
-
-* Windows
-* Linux
-
-
-## Section 2: Instructions for Reproducing Results
+## Section 3: Instructions for Reproducing Results
 
 Follow these steps to reproduce the results of this project:
 
