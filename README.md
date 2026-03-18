@@ -8,7 +8,6 @@ The analysis compares:
 * A baseline ARIMA model using only historical housing price data
 * An extended ARIMAX model that includes sentiment features derived from meeting minutes
 
----
 
 ## Map of Documentation 
 
@@ -61,7 +60,6 @@ PROJECT/
 └── README.md                             
 ```
 
----
 
 ## Section 1: Software and Platform
 
@@ -100,7 +98,6 @@ It should also run on:
 * Windows
 * Linux
 
----
 
 ## Section 2: Instructions for Reproducing Results
 
@@ -122,14 +119,12 @@ import nltk
 nltk.download('punkt')
 ```
 
----
 
 ### Step 2: Prepare Data
 
 1. Place all housing market report PDFs into the `data/` folder
 2. Place all HAC meeting minutes PDFs into the appropriate folder used in your scripts
 
----
 
 ### Step 3: Extract Housing Data
 
@@ -144,7 +139,6 @@ This will:
 * Extract median price, sales volume, and price change percentage
 * Save the output as `caar_data.csv`
 
----
 
 ### Step 4: Process Meeting Minutes
 
@@ -162,7 +156,6 @@ This will:
 * Generate sentiment-related variables
 * Save output as `housing_uncertainty_with_score.csv`
 
----
 
 ### Step 5: Merge Datasets
 
@@ -182,7 +175,6 @@ This will:
   * `sentiment_score`
 * Save final dataset as `combined_housing_sentiment.csv`
 
----
 
 ### Step 6: Run Modeling
 
@@ -200,14 +192,12 @@ This notebook will:
 * Generate forecasts
 * Compute evaluation metrics (RMSE and MAE)
 
----
 
 ### Step 7: Compare Results
 
 * Compare RMSE and MAE from both models
 * Determine whether sentiment improves predictive accuracy
 
----
 
 ## Expected Outcome
 
@@ -216,4 +206,3 @@ If the hypothesis is correct:
 * The ARIMAX model will produce lower RMSE and MAE than the ARIMA model
 * Sentiment variables will improve out-of-sample forecasts
 
----
