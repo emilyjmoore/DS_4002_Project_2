@@ -130,8 +130,8 @@ nltk.download('punkt')
 
 Run the script:
 
-```bash
-python scripts/scrape_caar_data.py
+```python
+SCRIPTS/scrape_caar_data.ipynb
 ```
 
 This will:
@@ -140,12 +140,12 @@ This will:
 * Save the output as `caar_data.csv`
 
 
-### Step 4: Process Meeting Minutes
+### Step 4: Process Meeting Minutes and CAAR Reports
 
 Run:
 
-```bash
-python scripts/process_meeting_minutes.py
+```python
+SCRIPTS/scrape_meeting_data.ipynb
 ```
 
 This will:
@@ -161,8 +161,8 @@ This will:
 
 Run:
 
-```bash
-python scripts/merge_datasets.py
+```python
+SCRIPTS/join_csv_files.ipynb
 ```
 
 This will:
@@ -170,7 +170,6 @@ This will:
 * Combine housing and sentiment datasets
 * Remove unnecessary columns (e.g., file names)
 * Compute:
-
   * `median_price_change_pct`
   * `sentiment_score`
 * Save final dataset as `combined_housing_sentiment.csv`
@@ -181,7 +180,7 @@ This will:
 Open and run:
 
 ```bash
-notebooks/analysis.ipynb
+SCRIPTS/time_series_model.ipynb
 ```
 
 This notebook will:
