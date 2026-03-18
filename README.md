@@ -83,8 +83,8 @@ The following libraries are required to run the project:
 
 You can install the required packages using:
 
-```
-pip install pandas numpy pdfplumber nltk statsmodels pmdarima
+```python
+pip install pandas numpy pdfplumber nltk statsmodels pmdarima 
 ```
 
 ### Platform
@@ -109,14 +109,14 @@ Follow these steps to reproduce the results of this project:
 2. Install required packages:
 
 ```bash
-pip install pandas numpy pdfplumber nltk statsmodels pmdarima
+pip install pandas numpy pdfplumber nltk statsmodels pmdarima 
 ```
 
 3. Download NLTK tokenizer (only needed once):
 
 ```python
 import nltk
-nltk.download('punkt')
+nltk.download('punkt') 
 ```
 
 
@@ -179,8 +179,8 @@ This will:
 
 Open and run:
 
-```bash
-SCRIPTS/time_series_model.ipynb
+```python
+SCRIPTS/time_series_model.ipynb 
 ```
 
 This notebook will:
